@@ -14,7 +14,7 @@ Provides an IAM group.
 
 ```hcl
 resource "aws_iam_group" "developers" {
-  name = "developers"
+  group_name = "developers"
   path = "/users/"
 }
 ```
@@ -23,7 +23,7 @@ resource "aws_iam_group" "developers" {
 
 The following arguments are supported:
 
-* `name` - (Required) The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+* `group_name` - (Required) The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
 * `path` - (Optional, default "/") Path in which to create the group.
 
 ## Attributes Reference
@@ -32,7 +32,7 @@ In addition to all arguments above, the following attributes are exported:
 
 * `id` - The group's ID.
 * `arn` - The ARN assigned by AWS for this group.
-* `name` - The group's name.
+* `group_name` - The group's name.
 * `path` - The path of the group in IAM.
 * `unique_id` - The [unique ID][1] assigned by AWS.
 
@@ -40,7 +40,7 @@ In addition to all arguments above, the following attributes are exported:
 
 ## Import
 
-IAM Groups can be imported using the `name`, e.g.
+IAM Groups can be imported using the `group_name`, e.g.
 
 ```
 $ terraform import aws_iam_group.developers developers
